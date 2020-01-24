@@ -6,11 +6,16 @@ class TrackerList extends Component {
     data: []
   };
   render() {
-    const { data } = this.props;
+    const { data, handleCheck } = this.props;
     return (
       <div>
-        {data.map(content => (
-          <Tracker title={content.title} check={content.check} />
+        {data.map((content, index) => (
+          <Tracker
+            key={index}
+            title={content.title}
+            check={content.check}
+            handleCheck={handleCheck}
+          />
         ))}
       </div>
     );

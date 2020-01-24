@@ -6,18 +6,24 @@ import moment from "moment";
 class App extends Component {
   constructor() {
     super();
+    const thisMonthDateLen = moment().daysInMonth();
+    const newArray = new Array(thisMonthDateLen).fill(0);
     this.state = {
       month: moment().format("YYYY.MM"),
       data: [
         {
           title: "commit",
-          check: new Array(1, 2, 3)
+          check: newArray
         }
       ],
       adding: false,
       addingTitle: ""
     };
   }
+
+  handleSaveData = () => {
+    localStorage.setItem(this.state.month, JSON.stringify(this.state.data));
+  };
 
   handleToggleItemInput = () => {
     this.setState({
@@ -27,19 +33,26 @@ class App extends Component {
 
   handleAddItem = () => {
     const { data, addingTitle } = this.state;
+    const thisMonthDateLen = moment().daysInMonth();
+    const newArray = new Array(thisMonthDateLen).fill(0);
     this.setState({
       data: data.concat({
         title: addingTitle,
-        check: ["0", "0"]
+        check: newArray
       })
     });
-    console.log(this.state.data);
+    this.handleSaveData();
   };
 
   handleChange = e => {
     this.setState({
       addingTitle: e.target.value
     });
+  };
+
+  handleCheck = title => {
+    const todayDate = moment().dates();
+    this.setState({});
   };
 
   render() {
@@ -58,7 +71,7 @@ class App extends Component {
             </button>
           </div>
         )}
-        <TrackerList data={this.state.data} />
+        <TrackerList data={this.state.data} handleCheck={this.handleCheck} />
       </div>
     );
   }
