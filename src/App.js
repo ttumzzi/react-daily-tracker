@@ -6,16 +6,9 @@ import moment from "moment";
 class App extends Component {
   constructor() {
     super();
-    const thisMonthDateLen = moment().daysInMonth();
-    const newArray = new Array(thisMonthDateLen).fill(0);
     this.state = {
       month: moment().format("YYYY.MM"),
-      data: [
-        {
-          title: "commit",
-          check: newArray
-        }
-      ],
+      data: [],
       adding: false,
       addingTitle: ""
     };
@@ -26,21 +19,31 @@ class App extends Component {
   };
 
   handleToggleItemInput = () => {
+    const adding = this.state.adding;
     this.setState({
-      adding: true
+      adding: !adding
     });
   };
 
   handleAddItem = () => {
-    const { data, addingTitle } = this.state;
+    const addingTitle = this.state.addingTitle;
+    const data = this.state.data;
     const thisMonthDateLen = moment().daysInMonth();
     const newArray = new Array(thisMonthDateLen).fill(0);
-    this.setState({
-      data: data.concat({
-        title: addingTitle,
-        check: newArray
-      })
-    });
+    this.setState(
+      {
+        data: [
+          ...data,
+          {
+            title: addingTitle,
+            check: newArray
+          }
+        ]
+      },
+      function() {
+        console.log(data);
+      }
+    );
     this.handleSaveData();
   };
 
