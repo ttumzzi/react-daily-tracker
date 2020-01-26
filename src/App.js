@@ -18,6 +18,8 @@ class App extends Component {
     localStorage.setItem(this.state.month, JSON.stringify(this.state.data));
   };
 
+  // adding -> true: check item 추가하는 input란이 보임
+  // adding -> false: check item 추가하는 input란이 안 보임
   handleToggleItemInput = () => {
     const adding = this.state.adding;
     this.setState({
@@ -47,6 +49,7 @@ class App extends Component {
     this.handleSaveData();
   };
 
+  // item title to add is saved to state addingTitle.
   handleChange = e => {
     this.setState({
       addingTitle: e.target.value
