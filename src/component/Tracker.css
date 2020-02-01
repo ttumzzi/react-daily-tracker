@@ -12,3 +12,13 @@
   width: 300px;
   color: white;
 }
+
+.item-header {
+  display: flex;
+  justify-content: center;
+}
+
+.item-check-button {
+  border: none;
+  background-color: transparent;
+}

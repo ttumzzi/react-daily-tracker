@@ -6,16 +6,11 @@ class Tracker extends Component {
     const { title, check, handleCheck } = this.props;
     return (
       <div className="tracker-box">
-        <h2>{title}</h2>
-        <div className="calendar">
-          {check.map((i, index) => (
-            <div className="date" key={index}>
-              {i}
-            </div>
-          ))}
-          <div>
-            <button onClick={handleCheck}>check today!</button>
-          </div>
+        <div className="item-header">
+          <h2>{title}</h2>
+          <button className="item-check-button" onClick={handleCheck}>
+            <span>✔️</span>
+          </button>
         </div>
       </div>
     );
