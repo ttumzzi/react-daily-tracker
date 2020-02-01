@@ -3,3 +3,18 @@ h2 {
   margin: 1rem;
   text-align: center;
 }
+
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.app-title {
+}
+
+.add-item-button {
+  border: none;
+  background-color: transparent;
+  font-size: 3rem;
+  margin-right: 2rem;
+}

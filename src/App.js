@@ -8,9 +8,7 @@ class App extends Component {
     super();
     this.state = {
       month: moment().format("YYYY.MM"),
-      data: [],
-      adding: false,
-      addingTitle: ""
+      data: []
     };
   }
 
@@ -28,32 +26,27 @@ class App extends Component {
   };
 
   handleAddItem = () => {
-    const addingTitle = this.state.addingTitle;
-    const data = this.state.data;
-    const thisMonthDateLen = moment().daysInMonth();
-    const newArray = new Array(thisMonthDateLen).fill(0);
-    this.setState(
-      {
-        data: [
-          ...data,
-          {
-            title: addingTitle,
-            check: newArray
-          }
-        ]
-      },
-      function() {
-        console.log(data);
-      }
-    );
-    this.handleSaveData();
-  };
-
-  // item title to add is saved to state addingTitle.
-  handleChange = e => {
-    this.setState({
-      addingTitle: e.target.value
-    });
+    const newItem = prompt("트래킹할 습관을 추가하세요 😊");
+    if (newItem !== "" && newItem !== null) {
+      const data = this.state.data;
+      const thisMonthDateLen = moment().daysInMonth();
+      const newArray = new Array(thisMonthDateLen).fill(0);
+      this.setState(
+        {
+          data: [
+            ...data,
+            {
+              title: newItem,
+              check: newArray
+            }
+          ]
+        },
+        function() {
+          console.log(data);
+        }
+      );
+      this.handleSaveData();
+    }
   };
 
   handleCheck = title => {
@@ -64,19 +57,13 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>Daily tracker</h1>
+        <div className="header">
+          <h1 className="app-title">Daily tracker</h1>
+          <button className="add-item-button" onClick={this.handleAddItem}>
+            +
+          </button>
+        </div>
         <h2>{this.state.month}</h2>
-        <button onClick={this.handleToggleItemInput}>
-          Add Tracking items!
-        </button>
-        {this.state.adding && (
-          <div>
-            <input onChange={this.handleChange} />
-            <button onClick={this.handleAddItem}>
-              <span>✔️</span>
-            </button>
-          </div>
-        )}
         <TrackerList data={this.state.data} handleCheck={this.handleCheck} />
       </div>
     );
