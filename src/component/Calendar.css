@@ -1,0 +1,21 @@
+.days {
+  display: flex;
+}
+
+.day:first-child {
+  color: rgb(201, 21, 21);
+}
+.day:last-child {
+  color: rgb(0, 85, 255);
+}
+
+.day {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.date {
+  display: inline-block;
+  width: 14.2857%;
+  text-align: center;
+}

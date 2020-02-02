@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Tracker from "./Tracker";
+import "./TrackerList.css";
 
 class TrackerList extends Component {
   static defaultProps = {
@@ -8,7 +9,7 @@ class TrackerList extends Component {
   render() {
     const { data, handleCheck } = this.props;
     return (
-      <div>
+      <div className="tracker-list">
         {data.map((content, index) => (
           <Tracker
             key={index}

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Tracker.css";
+import Calendar from "./Calendar";
 
 class Tracker extends Component {
   render() {
@@ -11,6 +12,9 @@ class Tracker extends Component {
           <button className="item-check-button" onClick={handleCheck}>
             <span>✔️</span>
           </button>
+        </div>
+        <div className="item-calendar">
+          <Calendar />
         </div>
       </div>
     );

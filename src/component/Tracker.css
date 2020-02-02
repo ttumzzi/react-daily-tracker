@@ -1,16 +1,8 @@
 .tracker-box {
   background-color: white;
+  padding: 1rem;
   margin: 2rem;
   box-shadow: 3px 3px 10px #555e60;
-}
-
-.date {
-  display: inline;
-  margin-left: 0.5rem;
-  margin-bottom: 0.5rem;
-  background-color: rgb(213, 212, 212);
-  width: 300px;
-  color: white;
 }
 
 .item-header {

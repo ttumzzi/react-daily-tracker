@@ -31,20 +31,15 @@ class App extends Component {
       const data = this.state.data;
       const thisMonthDateLen = moment().daysInMonth();
       const newArray = new Array(thisMonthDateLen).fill(0);
-      this.setState(
-        {
-          data: [
-            ...data,
-            {
-              title: newItem,
-              check: newArray
-            }
-          ]
-        },
-        function() {
-          console.log(data);
-        }
-      );
+      this.setState({
+        data: [
+          ...data,
+          {
+            title: newItem,
+            check: newArray
+          }
+        ]
+      });
       this.handleSaveData();
     }
   };
@@ -64,7 +59,9 @@ class App extends Component {
           </button>
         </div>
         <h2>{this.state.month}</h2>
-        <TrackerList data={this.state.data} handleCheck={this.handleCheck} />
+        <div className="tracker">
+          <TrackerList data={this.state.data} handleCheck={this.handleCheck} />
+        </div>
       </div>
     );
   }
