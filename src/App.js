@@ -12,35 +12,24 @@ class App extends Component {
     };
   }
 
-  handleSaveData = () => {
+  handleSaveData = newItem => {
+    console.log(this.state.data);
+    console.log(newItem);
     localStorage.setItem(this.state.month, JSON.stringify(this.state.data));
   };
 
-  // adding -> true: check item 추가하는 input란이 보임
-  // adding -> false: check item 추가하는 input란이 안 보임
-  handleToggleItemInput = () => {
-    const adding = this.state.adding;
-    this.setState({
-      adding: !adding
-    });
-  };
-
   handleAddItem = () => {
+    console.log(this.state.data);
     const newItem = prompt("트래킹할 습관을 추가하세요 😊");
     if (newItem !== "" && newItem !== null) {
       const data = this.state.data;
-      const thisMonthDateLen = moment().daysInMonth();
-      const newArray = new Array(thisMonthDateLen).fill(0);
       this.setState({
-        data: [
-          ...data,
-          {
-            title: newItem,
-            check: newArray
-          }
-        ]
+        data: data.concat({
+          title: newItem,
+          check: []
+        })
       });
-      this.handleSaveData();
+      this.handleSaveData(newItem);
     }
   };
 
