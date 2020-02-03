@@ -1,0 +1,15 @@
+.date {
+  margin-bottom: 5px;
+  color: gray;
+  text-align: center;
+  flex-grow: 1;
+  flex-basis: 5px;
+  margin: 0.2rem;
+  padding: 0.1rem;
+}
+
+.checked-date {
+  background-color: rgb(18, 76, 159);
+  color: white;
+  border-radius: 10px;
+}

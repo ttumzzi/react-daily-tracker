@@ -19,7 +19,7 @@ class Tracker extends Component {
           )}
         </div>
         <div className="item-calendar">
-          <Calendar />
+          <Calendar checkDates={checkDates} />
         </div>
       </div>
     );

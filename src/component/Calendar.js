@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Calendar.css";
-import moment, { months } from "moment";
+import Date from "./Date";
 
 function Day() {
   const day = ["S", "M", "T", "W", "T", "F", "S"];
@@ -16,32 +16,13 @@ function Day() {
   );
 }
 
-function Date() {
-  const date = [];
-  const firstDayInMonth = moment()
-    .startOf("month")
-    .get("day");
-  const daysInMonth = moment().daysInMonth();
-
-  for (let i = 0; i < firstDayInMonth; i++) date.push(0);
-  for (let i = 0; i < daysInMonth; i++) date.push(i + 1);
-  return (
-    <div className="dates">
-      {date.map((date, index) => (
-        <div className="date" key={index}>
-          {date === 0 ? "" : date}
-        </div>
-      ))}
-    </div>
-  );
-}
-
 class Calendar extends Component {
   render() {
+    const checkDates = this.props.checkDates;
     return (
       <div className="calendar-root">
         <Day />
-        <Date />
+        <Date checkDates={checkDates} />
       </div>
     );
   }

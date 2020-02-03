@@ -10,18 +10,19 @@
 }
 
 .day {
-  flex-grow: 1;
+  flex-basis: 100px;
   text-align: center;
 }
 
-.date {
-  margin-bottom: 5px;
-  color: gray;
-  display: inline-block;
-  width: 14.2857%;
-  text-align: center;
+.calendar-row {
+  display: flex;
+  margin-bottom: 1rem;
 }
 
-.date:last-child {
+.calendar-row:first-child {
+  margin-top: 1rem;
+}
+
+.calendar-row:last-child {
   margin-bottom: 1.5rem;
 }
