@@ -15,7 +15,13 @@
 }
 
 .date {
+  margin-bottom: 5px;
+  color: gray;
   display: inline-block;
   width: 14.2857%;
   text-align: center;
+}
+
+.date:last-child {
+  margin-bottom: 1.5rem;
 }

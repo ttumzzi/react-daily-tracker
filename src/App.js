@@ -6,36 +6,60 @@ import moment from "moment";
 class App extends Component {
   constructor() {
     super();
+    const thisMonth = moment().format("YYYY.MM");
+    // get Data from local storage
+    const savedDataString = localStorage.getItem(thisMonth);
+    const savedDataArray = JSON.parse(savedDataString);
     this.state = {
-      month: moment().format("YYYY.MM"),
-      data: []
+      month: thisMonth,
+      data: savedDataArray === null ? [] : savedDataArray
     };
   }
 
   handleSaveData = newItem => {
-    console.log(this.state.data);
-    console.log(newItem);
-    localStorage.setItem(this.state.month, JSON.stringify(this.state.data));
+    localStorage.setItem(this.state.month, JSON.stringify(newItem));
   };
 
   handleAddItem = () => {
-    console.log(this.state.data);
-    const newItem = prompt("트래킹할 습관을 추가하세요 😊");
+    const newItem = prompt("Add new habit to traking 😊");
     if (newItem !== "" && newItem !== null) {
       const data = this.state.data;
-      this.setState({
-        data: data.concat({
-          title: newItem,
-          check: []
-        })
-      });
-      this.handleSaveData(newItem);
+      this.setState(
+        {
+          data: data.concat({
+            title: newItem,
+            checkDates: [],
+            checkToday: false
+          })
+        },
+        // using updated state right after setState
+        () => {
+          this.handleSaveData(this.state.data);
+        }
+      );
     }
   };
 
   handleCheck = title => {
-    const todayDate = moment().dates();
-    this.setState({});
+    const todayDate = moment().date();
+    const data = this.state.data;
+
+    this.setState(
+      {
+        data: data.map(item =>
+          item.title === title
+            ? {
+                title: title,
+                checkDates: item.checkDates.concat(todayDate),
+                checkToday: true
+              }
+            : item
+        )
+      },
+      () => {
+        this.handleSaveData(this.state.data);
+      }
+    );
   };
 
   render() {

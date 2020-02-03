@@ -14,7 +14,8 @@ class TrackerList extends Component {
           <Tracker
             key={index}
             title={content.title}
-            check={content.check}
+            checkDates={content.checkDates}
+            checkToday={content.checkToday}
             handleCheck={handleCheck}
           />
         ))}
