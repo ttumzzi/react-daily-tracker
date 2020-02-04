@@ -10,5 +10,5 @@ You can add some habits to do and check off every day.
 - Deleting habits (double click) </br>
 
 <h2>🔎 Preview </h2>
-![Main image](imgs/main.JPG)
-![Editing image](imgs/edit_delete.JPG)
+![Main image](/imgs/main.JPG)
+![Editing image](/imgs/edit_delete.JPG)
