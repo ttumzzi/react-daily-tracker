@@ -2,19 +2,24 @@ import React, { Component } from "react";
 import "./App.css";
 import TrackerList from "./component/TrackerList";
 import moment from "moment";
+import Month from "./component/Month";
 
 class App extends Component {
   constructor() {
     super();
-    const thisMonth = moment().format("YYYY.MM");
+    const thisMonth = moment().format("YYYY . M");
     // get Data from local storage
-    const savedDataString = localStorage.getItem(thisMonth);
+    const savedDataString = this.handleLoadData(thisMonth);
     const savedDataArray = JSON.parse(savedDataString);
     this.state = {
       month: thisMonth,
       data: savedDataArray === null ? [] : savedDataArray
     };
   }
+
+  handleLoadData = month => {
+    return localStorage.getItem(month);
+  };
 
   handleSaveData = newItem => {
     localStorage.setItem(this.state.month, JSON.stringify(newItem));
@@ -28,8 +33,7 @@ class App extends Component {
         {
           data: data.concat({
             title: newItem,
-            checkDates: [],
-            checkToday: false
+            checkDates: []
           })
         },
         // using updated state right after setState
@@ -62,16 +66,38 @@ class App extends Component {
     );
   };
 
+  handleMonth = direction => {
+    const yearMonth = this.state.month;
+    const year = parseInt(yearMonth.split(".")[0]);
+    const month = parseInt(yearMonth.split(".")[1]);
+
+    let newMonth = "";
+    if (direction === "+")
+      newMonth = month === 12 ? `${year + 1} . 01` : `${year} . ${month + 1}`;
+    else newMonth = month === 1 ? `${year - 1} . 12` : `${year} . ${month - 1}`;
+
+    const newData = this.handleLoadData(newMonth);
+    let newDataObjForm = JSON.parse(newData);
+    newDataObjForm = newDataObjForm === null ? [] : newDataObjForm;
+
+    this.setState({
+      month: newMonth,
+      data: this.state.data.slice(0, 0).concat(newDataObjForm)
+    });
+  };
+
   render() {
     return (
       <div>
         <div className="header">
           <h1 className="app-title">Daily tracker</h1>
-          <button className="add-item-button" onClick={this.handleAddItem}>
-            +
-          </button>
+          {this.state.month === moment().format("YYYY . M") && (
+            <button className="add-item-button" onClick={this.handleAddItem}>
+              ✔ Add item
+            </button>
+          )}
         </div>
-        <h2>{this.state.month}</h2>
+        <Month month={this.state.month} handleMonth={this.handleMonth} />
         <div className="tracker">
           <TrackerList data={this.state.data} handleCheck={this.handleCheck} />
         </div>

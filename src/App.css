@@ -3,15 +3,18 @@ h2 {
   margin: 1rem;
   text-align: center;
 }
-
 .header {
-  display: flex;
-  justify-content: center;
+  text-align: center;
 }
 
 .add-item-button {
   border: none;
-  background-color: transparent;
-  font-size: 3rem;
-  margin-right: 2rem;
+  background-color: rgb(29, 64, 147);
+  font-size: 1.5rem;
+  border-radius: 10px;
+  color: aliceblue;
 }
+
+/* .header > * {
+  display: inline;
+} */

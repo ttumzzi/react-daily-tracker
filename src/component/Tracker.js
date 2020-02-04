@@ -9,7 +9,9 @@ function CheckButton(props) {
   if (!checkDates.includes(today)) {
     return (
       <button className="item-check-button" onClick={() => handleCheck(title)}>
-        <span>✔️</span>
+        <span role="img" aria-label="check">
+          ✔️
+        </span>
       </button>
     );
   } else {
@@ -19,7 +21,7 @@ function CheckButton(props) {
 
 class Tracker extends Component {
   render() {
-    const { title, checkDates, checkToday, handleCheck } = this.props;
+    const { title, checkDates, handleCheck } = this.props;
     return (
       <div className="tracker-box">
         <div className="item-header">

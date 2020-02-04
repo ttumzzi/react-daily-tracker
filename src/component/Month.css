@@ -1,0 +1,12 @@
+.month {
+  text-align: center;
+}
+
+.month > * {
+  display: inline;
+}
+
+.month > button {
+  border: none;
+  background-color: transparent;
+}
