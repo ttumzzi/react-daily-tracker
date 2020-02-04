@@ -11,4 +11,4 @@ You can add some habits to do and check off every day.
 
 <h2>🔎 Preview </h2>
 <img width="80%" src="https://github.com/ttumzzi/daily-tracker/blob/master/imgs/main.JPG"/>
-<img width="20% src="https://github.com/ttumzzi/daily-tracker/blob/master/imgs/edit_delete.JPG"/>
+<img width="20%" src="https://github.com/ttumzzi/daily-tracker/blob/master/imgs/edit_delete.JPG"/>
