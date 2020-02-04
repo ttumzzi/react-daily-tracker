@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/daily-tracker-app/static/css/main.b94c3e39.chunk.css",
-    "main.js": "/daily-tracker-app/static/js/main.76ba21fa.chunk.js",
-    "main.js.map": "/daily-tracker-app/static/js/main.76ba21fa.chunk.js.map",
-    "runtime-main.js": "/daily-tracker-app/static/js/runtime-main.7a0bb5a0.js",
-    "runtime-main.js.map": "/daily-tracker-app/static/js/runtime-main.7a0bb5a0.js.map",
-    "static/js/2.daf9473e.chunk.js": "/daily-tracker-app/static/js/2.daf9473e.chunk.js",
-    "static/js/2.daf9473e.chunk.js.map": "/daily-tracker-app/static/js/2.daf9473e.chunk.js.map",
-    "index.html": "/daily-tracker-app/index.html",
-    "precache-manifest.37207d8c40ae3bf34fbd6014e05e51c3.js": "/daily-tracker-app/precache-manifest.37207d8c40ae3bf34fbd6014e05e51c3.js",
-    "service-worker.js": "/daily-tracker-app/service-worker.js",
-    "static/css/main.b94c3e39.chunk.css.map": "/daily-tracker-app/static/css/main.b94c3e39.chunk.css.map",
-    "static/js/2.daf9473e.chunk.js.LICENSE": "/daily-tracker-app/static/js/2.daf9473e.chunk.js.LICENSE"
+    "main.css": "/react-daily-tracker/static/css/main.b94c3e39.chunk.css",
+    "main.js": "/react-daily-tracker/static/js/main.fa49c908.chunk.js",
+    "main.js.map": "/react-daily-tracker/static/js/main.fa49c908.chunk.js.map",
+    "runtime-main.js": "/react-daily-tracker/static/js/runtime-main.74ff07b2.js",
+    "runtime-main.js.map": "/react-daily-tracker/static/js/runtime-main.74ff07b2.js.map",
+    "static/js/2.daf9473e.chunk.js": "/react-daily-tracker/static/js/2.daf9473e.chunk.js",
+    "static/js/2.daf9473e.chunk.js.map": "/react-daily-tracker/static/js/2.daf9473e.chunk.js.map",
+    "index.html": "/react-daily-tracker/index.html",
+    "precache-manifest.3c4a70efe69bbb02e4f9474dd9a93419.js": "/react-daily-tracker/precache-manifest.3c4a70efe69bbb02e4f9474dd9a93419.js",
+    "service-worker.js": "/react-daily-tracker/service-worker.js",
+    "static/css/main.b94c3e39.chunk.css.map": "/react-daily-tracker/static/css/main.b94c3e39.chunk.css.map",
+    "static/js/2.daf9473e.chunk.js.LICENSE": "/react-daily-tracker/static/js/2.daf9473e.chunk.js.LICENSE"
   },
   "entrypoints": [
-    "static/js/runtime-main.7a0bb5a0.js",
+    "static/js/runtime-main.74ff07b2.js",
     "static/js/2.daf9473e.chunk.js",
     "static/css/main.b94c3e39.chunk.css",
-    "static/js/main.76ba21fa.chunk.js"
+    "static/js/main.fa49c908.chunk.js"
   ]
 }
