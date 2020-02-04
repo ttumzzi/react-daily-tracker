@@ -50,8 +50,18 @@ function Setting(props) {
   };
   return (
     <div className="setting">
-      <button onClick={handleItemEdit}>edit title ✏️</button>
-      <button onClick={handleItemDelete}>delete 🗑️</button>
+      <button onClick={handleItemEdit}>
+        edit title{" "}
+        <span role="img" aria-label="edit">
+          ✏️
+        </span>
+      </button>
+      <button onClick={handleItemDelete}>
+        delete{" "}
+        <span role="img" aria-label="edit">
+          🗑️
+        </span>
+      </button>
     </div>
   );
 }
