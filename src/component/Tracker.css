@@ -7,6 +7,13 @@
   border-radius: 15px;
 }
 
+.tracker-box > * {
+  animation: fadein 1s;
+  -moz-animation: fadein 1s; /* Firefox */
+  -webkit-animation: fadein 1s; /* Safari and Chrome */
+  -o-animation: fadein 1s; /* Opera */
+}
+
 .item-header {
   display: flex;
   justify-content: center;
@@ -15,4 +22,63 @@
 .item-check-button {
   border: none;
   background-color: transparent;
+}
+
+.setting {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+}
+
+.setting > button {
+  border: none;
+  background-color: rgb(18, 76, 159);
+  color: white;
+  font-size: 2rem;
+  border-radius: 15px;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  width: 300px;
+  align-self: center;
+}
+
+.setting > button:hover {
+  color: aquamarine;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
 }

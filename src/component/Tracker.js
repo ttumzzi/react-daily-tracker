@@ -4,11 +4,11 @@ import moment from "moment";
 import Calendar from "./Calendar";
 
 function CheckButton(props) {
-  const { title, checkDates, handleCheck } = props;
+  const { id, checkDates, handleCheck } = props;
   const today = moment().date();
   if (!checkDates.includes(today)) {
     return (
-      <button className="item-check-button" onClick={() => handleCheck(title)}>
+      <button className="item-check-button" onClick={() => handleCheck(id)}>
         <span role="img" aria-label="check">
           ✔️
         </span>
@@ -19,6 +19,43 @@ function CheckButton(props) {
   }
 }
 
+function TrackerNormal(props) {
+  const { id, title, checkDates, handleCheck } = props;
+  return (
+    <div>
+      <div className="item-header">
+        <h2>{title}</h2>
+        <CheckButton
+          id={id}
+          checkDates={checkDates}
+          handleCheck={handleCheck}
+        />
+      </div>
+      <div className="item-calendar">
+        <Calendar checkDates={checkDates} />
+      </div>
+    </div>
+  );
+}
+
+function Setting(props) {
+  const { id, handleEdit, handleDelete, handleSettingOpen } = props;
+  const handleItemEdit = () => {
+    handleEdit(id);
+    handleSettingOpen();
+  };
+  const handleItemDelete = () => {
+    handleDelete(id);
+    handleSettingOpen();
+  };
+  return (
+    <div className="setting">
+      <button onClick={handleItemEdit}>edit title ✏️</button>
+      <button onClick={handleItemDelete}>delete 🗑️</button>
+    </div>
+  );
+}
+
 class Tracker extends Component {
   constructor(props) {
     super(props);
@@ -27,26 +64,40 @@ class Tracker extends Component {
     };
   }
 
+  handleSettingOpen = () => {
+    const settingOpen = this.state.settingOpen;
+    this.setState({
+      settingOpen: !settingOpen
+    });
+  };
+
   render() {
-    const { title, checkDates, handleCheck } = this.props;
+    const {
+      id,
+      title,
+      checkDates,
+      handleCheck,
+      handleEdit,
+      handleDelete
+    } = this.props;
     const settingOpen = this.state.settingOpen;
     return (
-      <div className="tracker-box">
+      <div className="tracker-box" onDoubleClick={this.handleSettingOpen}>
         {!settingOpen ? (
-          <div>
-            <div className="item-header">
-              <h2>{title}</h2>
-              <CheckButton
-                title={title}
-                checkDates={checkDates}
-                handleCheck={handleCheck}
-              />
-            </div>
-            <div className="item-calendar">
-              <Calendar checkDates={checkDates} />
-            </div>
-          </div>
-        ) : null}
+          <TrackerNormal
+            id={id}
+            title={title}
+            checkDates={checkDates}
+            handleCheck={handleCheck}
+          />
+        ) : (
+          <Setting
+            id={id}
+            handleEdit={handleEdit}
+            handleSettingOpen={this.handleSettingOpen}
+            handleDelete={handleDelete}
+          />
+        )}
       </div>
     );
   }

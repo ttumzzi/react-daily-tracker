@@ -27,11 +27,13 @@ class App extends Component {
 
   handleAddItem = () => {
     const newItem = prompt("Add new habit to traking 😊");
+    const shortid = require("shortid");
     if (newItem !== "" && newItem !== null) {
       const data = this.state.data;
       this.setState(
         {
           data: data.concat({
+            id: shortid.generate(),
             title: newItem,
             checkDates: []
           })
@@ -44,16 +46,17 @@ class App extends Component {
     }
   };
 
-  handleCheck = title => {
+  handleCheck = id => {
     const todayDate = moment().date();
     const data = this.state.data;
 
     this.setState(
       {
         data: data.map(item =>
-          item.title === title
+          item.id === id
             ? {
-                title: title,
+                id: item.id,
+                title: item.title,
                 checkDates: item.checkDates.concat(todayDate)
               }
             : item
@@ -85,6 +88,45 @@ class App extends Component {
     });
   };
 
+  handleEdit = id => {
+    const newTitle = prompt("Write your new title. 😀");
+    const data = this.state.data;
+    if (newTitle !== "" && newTitle !== null) {
+      this.setState(
+        {
+          data: data.map(item =>
+            item.id === id
+              ? {
+                  ...item,
+                  title: newTitle
+                }
+              : item
+          )
+        },
+        () => {
+          this.handleSaveData(this.state.data);
+        }
+      );
+    }
+  };
+
+  handleDelete = id => {
+    const data = this.state.data;
+    const askingDelete = window.confirm(
+      "Do you really want to delete this habit?😂"
+    );
+    if (askingDelete) {
+      this.setState(
+        {
+          data: data.filter(item => (item.id !== id ? true : false))
+        },
+        () => {
+          this.handleSaveData(this.state.data);
+        }
+      );
+    }
+  };
+
   render() {
     return (
       <div>
@@ -98,7 +140,12 @@ class App extends Component {
         </div>
         <Month month={this.state.month} handleMonth={this.handleMonth} />
         <div className="tracker">
-          <TrackerList data={this.state.data} handleCheck={this.handleCheck} />
+          <TrackerList
+            data={this.state.data}
+            handleCheck={this.handleCheck}
+            handleEdit={this.handleEdit}
+            handleDelete={this.handleDelete}
+          />
         </div>
       </div>
     );

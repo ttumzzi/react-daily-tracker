@@ -19,12 +19,12 @@ h2 {
 }
 
 .app-title {
-  font-family: "Sigmar One", cursive;
+  font-family: "Lobster", sans-serif;
 }
 
 .add-item-button {
   border: none;
-  background-color: rgb(29, 64, 147);
+  background-color: rgb(18, 76, 159);
   border-radius: 10px;
   font-size: 1.2rem;
   color: aliceblue;

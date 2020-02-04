@@ -4,17 +4,19 @@ import "./TrackerList.css";
 
 class TrackerList extends Component {
   render() {
-    const { data, handleCheck } = this.props;
-    const shortid = require("shortid");
+    const { data, handleCheck, handleEdit, handleDelete } = this.props;
     return (
       <div className="tracker-list">
         {data.map(content => (
           <Tracker
-            key={shortid.generate()}
+            key={content.id}
             title={content.title}
+            id={content.id}
             checkDates={content.checkDates}
             checkToday={content.checkToday}
             handleCheck={handleCheck}
+            handleEdit={handleEdit}
+            handleDelete={handleDelete}
           />
         ))}
       </div>
