@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/daily_tracker/static/css/main.b94c3e39.chunk.css",
-    "main.js": "/daily_tracker/static/js/main.71026a5b.chunk.js",
-    "main.js.map": "/daily_tracker/static/js/main.71026a5b.chunk.js.map",
+    "main.js": "/daily_tracker/static/js/main.5a8a9d23.chunk.js",
+    "main.js.map": "/daily_tracker/static/js/main.5a8a9d23.chunk.js.map",
     "runtime-main.js": "/daily_tracker/static/js/runtime-main.2212286d.js",
     "runtime-main.js.map": "/daily_tracker/static/js/runtime-main.2212286d.js.map",
     "static/js/2.252b3bde.chunk.js": "/daily_tracker/static/js/2.252b3bde.chunk.js",
     "static/js/2.252b3bde.chunk.js.map": "/daily_tracker/static/js/2.252b3bde.chunk.js.map",
     "index.html": "/daily_tracker/index.html",
-    "precache-manifest.92868d94b22faafb38315b5803f42316.js": "/daily_tracker/precache-manifest.92868d94b22faafb38315b5803f42316.js",
+    "precache-manifest.3e26379f2dcf7639c35d45b1217eef36.js": "/daily_tracker/precache-manifest.3e26379f2dcf7639c35d45b1217eef36.js",
     "service-worker.js": "/daily_tracker/service-worker.js",
     "static/css/main.b94c3e39.chunk.css.map": "/daily_tracker/static/css/main.b94c3e39.chunk.css.map",
     "static/js/2.252b3bde.chunk.js.LICENSE": "/daily_tracker/static/js/2.252b3bde.chunk.js.LICENSE"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.2212286d.js",
     "static/js/2.252b3bde.chunk.js",
     "static/css/main.b94c3e39.chunk.css",
-    "static/js/main.71026a5b.chunk.js"
+    "static/js/main.5a8a9d23.chunk.js"
   ]
 }
