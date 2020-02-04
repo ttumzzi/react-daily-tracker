@@ -20,21 +20,33 @@ function CheckButton(props) {
 }
 
 class Tracker extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      settingOpen: false
+    };
+  }
+
   render() {
     const { title, checkDates, handleCheck } = this.props;
+    const settingOpen = this.state.settingOpen;
     return (
       <div className="tracker-box">
-        <div className="item-header">
-          <h2>{title}</h2>
-          <CheckButton
-            title={title}
-            checkDates={checkDates}
-            handleCheck={handleCheck}
-          />
-        </div>
-        <div className="item-calendar">
-          <Calendar checkDates={checkDates} />
-        </div>
+        {!settingOpen ? (
+          <div>
+            <div className="item-header">
+              <h2>{title}</h2>
+              <CheckButton
+                title={title}
+                checkDates={checkDates}
+                handleCheck={handleCheck}
+              />
+            </div>
+            <div className="item-calendar">
+              <Calendar checkDates={checkDates} />
+            </div>
+          </div>
+        ) : null}
       </div>
     );
   }

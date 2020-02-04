@@ -3,16 +3,14 @@ import Tracker from "./Tracker";
 import "./TrackerList.css";
 
 class TrackerList extends Component {
-  static defaultProps = {
-    data: []
-  };
   render() {
     const { data, handleCheck } = this.props;
+    const shortid = require("shortid");
     return (
       <div className="tracker-list">
-        {data.map((content, index) => (
+        {data.map(content => (
           <Tracker
-            key={index}
+            key={shortid.generate()}
             title={content.title}
             checkDates={content.checkDates}
             checkToday={content.checkToday}

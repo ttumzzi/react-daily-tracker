@@ -54,8 +54,7 @@ class App extends Component {
           item.title === title
             ? {
                 title: title,
-                checkDates: item.checkDates.concat(todayDate),
-                checkToday: true
+                checkDates: item.checkDates.concat(todayDate)
               }
             : item
         )

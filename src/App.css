@@ -1,20 +1,32 @@
+* {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
+  font-family: "Open Sans", sans-serif;
+}
+
 h1,
 h2 {
   margin: 1rem;
   text-align: center;
 }
+
 .header {
   text-align: center;
+}
+
+.app-title {
+  font-family: "Sigmar One", cursive;
 }
 
 .add-item-button {
   border: none;
   background-color: rgb(29, 64, 147);
-  font-size: 1.5rem;
   border-radius: 10px;
+  font-size: 1.2rem;
   color: aliceblue;
+  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
 }
-
-/* .header > * {
-  display: inline;
-} */
