@@ -75,7 +75,7 @@ class App extends Component {
 
     let newMonth = "";
     if (direction === "+")
-      newMonth = month === 12 ? `${year + 1} . 01` : `${year} . ${month + 1}`;
+      newMonth = month === 12 ? `${year + 1} . 1` : `${year} . ${month + 1}`;
     else newMonth = month === 1 ? `${year - 1} . 12` : `${year} . ${month - 1}`;
 
     const newData = this.handleLoadData(newMonth);
