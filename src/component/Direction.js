@@ -3,13 +3,15 @@ import "./Direction.css";
 
 function Direction(props) {
   const handleDirection = () => {
-    alert("Double Click on the for editing!😀");
+    alert(
+      "Create a new habit and track it every day.\nDouble Click on the calendar for editing!😀"
+    );
   };
   return (
     <div className="direction">
       <button className="explanation-button" onClick={handleDirection}>
         <span role="img" aria-label="direction">
-          🔎
+          💡
         </span>
       </button>
       <div className="direction-elem">
