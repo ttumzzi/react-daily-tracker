@@ -6,31 +6,22 @@ import "./Date.css";
 function DateElem(props) {
   const { month, n, i, checkDates, startDate } = props;
   const curDate = `${month}.${n}`;
+  const classNames = require("classnames");
+  let classArr = ["date"];
+
   if (moment().format("YYYY.M.D") === curDate) {
-    return (
-      <div className="date checked-date today" key={`${n}-${i}`}>
-        <b>{n === 0 ? "" : n}</b>
-      </div>
-    );
+    classArr.push("today");
   } else if (startDate === curDate) {
-    return (
-      <div className="date checked-date start-date" key={`${n}-${i}`}>
-        <b>{n === 0 ? "" : n}</b>
-      </div>
-    );
-  } else if (!checkDates.includes(n)) {
-    return (
-      <div className="date" key={`${n}-${i}`}>
-        {n === 0 ? "" : n}
-      </div>
-    );
-  } else {
-    return (
-      <div className="date checked-date" key={`${n}-${i}`}>
-        {n === 0 ? "" : n}
-      </div>
-    );
+    classArr.push("start-date");
   }
+  if (checkDates.includes(n)) {
+    classArr.push("checked-date");
+  }
+  return (
+    <div className={classNames(classArr)} key={`${n}-${i}`}>
+      <b>{n === 0 ? "" : n}</b>
+    </div>
+  );
 }
 
 function Date(props) {
