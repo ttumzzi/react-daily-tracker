@@ -1,0 +1,17 @@
+.direction {
+  display: flex;
+  flex-direction: row-reverse;
+  background-color: rgb(18, 76, 159);
+  color: white;
+}
+
+.direction * {
+  /* display: inline; */
+  margin: 1px 10px 1px 10px;
+}
+
+.explanation-button {
+  border: none;
+  background-color: transparent;
+  font-size: 1.3rem;
+}

@@ -20,7 +20,7 @@ function CheckButton(props) {
 }
 
 function TrackerNormal(props) {
-  const { id, title, checkDates, handleCheck } = props;
+  const { id, month, title, checkDates, startDate, handleCheck } = props;
   return (
     <div>
       <div className="item-header">
@@ -32,7 +32,7 @@ function TrackerNormal(props) {
         />
       </div>
       <div className="item-calendar">
-        <Calendar checkDates={checkDates} />
+        <Calendar month={month} checkDates={checkDates} startDate={startDate} />
       </div>
     </div>
   );
@@ -84,8 +84,10 @@ class Tracker extends Component {
   render() {
     const {
       id,
+      month,
       title,
       checkDates,
+      startDate,
       handleCheck,
       handleEdit,
       handleDelete
@@ -96,8 +98,10 @@ class Tracker extends Component {
         {!settingOpen ? (
           <TrackerNormal
             id={id}
+            month={month}
             title={title}
             checkDates={checkDates}
+            startDate={startDate}
             handleCheck={handleCheck}
           />
         ) : (

@@ -4,8 +4,21 @@ import "./Date.css";
 
 // coloring if the date is checked.
 function DateElem(props) {
-  const { n, i, checkDates } = props;
-  if (!checkDates.includes(n)) {
+  const { month, n, i, checkDates, startDate } = props;
+  const curDate = `${month}.${n}`;
+  if (moment().format("YYYY.M.D") === curDate) {
+    return (
+      <div className="date checked-date today" key={`${n}-${i}`}>
+        <b>{n === 0 ? "" : n}</b>
+      </div>
+    );
+  } else if (startDate === curDate) {
+    return (
+      <div className="date checked-date start-date" key={`${n}-${i}`}>
+        <b>{n === 0 ? "" : n}</b>
+      </div>
+    );
+  } else if (!checkDates.includes(n)) {
     return (
       <div className="date" key={`${n}-${i}`}>
         {n === 0 ? "" : n}
@@ -21,7 +34,7 @@ function DateElem(props) {
 }
 
 function Date(props) {
-  const checkDates = props.checkDates;
+  const { month, checkDates, startDate } = props;
   const date = [];
   const firstDayInMonth = moment()
     .startOf("month")
@@ -36,7 +49,14 @@ function Date(props) {
     calendar.push(
       <div className="calendar-row" key={week}>
         {date.slice(week * 7, week * 7 + 7).map((n, i) => (
-          <DateElem key={`${n}_${i}`} n={n} i={i} checkDates={checkDates} />
+          <DateElem
+            key={`${n}_${i}`}
+            month={month}
+            n={n}
+            i={i}
+            checkDates={checkDates}
+            startDate={startDate}
+          />
         ))}
       </div>
     );

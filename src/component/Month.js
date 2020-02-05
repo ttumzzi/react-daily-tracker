@@ -11,7 +11,7 @@ class Month extends Component {
           <h2>{"<"}</h2>
         </button>
         <h2>{month}</h2>
-        {month !== moment().format("YYYY . M") && (
+        {month !== moment().format("YYYY.M") && (
           <button onClick={() => handleMonth("+")}>
             <h2>{">"}</h2>
           </button>

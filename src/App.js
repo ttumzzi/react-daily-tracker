@@ -3,11 +3,12 @@ import "./App.css";
 import TrackerList from "./component/TrackerList";
 import moment from "moment";
 import Month from "./component/Month";
+import Direction from "./component/Direction";
 
 class App extends Component {
   constructor() {
     super();
-    const thisMonth = moment().format("YYYY . M");
+    const thisMonth = moment().format("YYYY.M");
     // get Data from local storage
     const savedDataString = this.handleLoadData(thisMonth);
     const savedDataArray = JSON.parse(savedDataString);
@@ -35,7 +36,8 @@ class App extends Component {
           data: data.concat({
             id: shortid.generate(),
             title: newItem,
-            checkDates: []
+            checkDates: [],
+            startDate: moment().format("YYYY.M.D")
           })
         },
         // using updated state right after setState
@@ -57,7 +59,8 @@ class App extends Component {
             ? {
                 id: item.id,
                 title: item.title,
-                checkDates: item.checkDates.concat(todayDate)
+                checkDates: item.checkDates.concat(todayDate),
+                startDate: moment().format("YYYY.M.D")
               }
             : item
         )
@@ -75,8 +78,8 @@ class App extends Component {
 
     let newMonth = "";
     if (direction === "+")
-      newMonth = month === 12 ? `${year + 1} . 1` : `${year} . ${month + 1}`;
-    else newMonth = month === 1 ? `${year - 1} . 12` : `${year} . ${month - 1}`;
+      newMonth = month === 12 ? `${year + 1}.1` : `${year}.${month + 1}`;
+    else newMonth = month === 1 ? `${year - 1}.12` : `${year}.${month - 1}`;
 
     const newData = this.handleLoadData(newMonth);
     let newDataObjForm = JSON.parse(newData);
@@ -129,10 +132,11 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="full-page">
+        <Direction />
         <div className="header">
           <h1 className="app-title">Daily tracker</h1>
-          {this.state.month === moment().format("YYYY . M") && (
+          {this.state.month === moment().format("YYYY.M") && (
             <button className="add-item-button" onClick={this.handleAddItem}>
               ✔ Add item
             </button>
@@ -141,6 +145,7 @@ class App extends Component {
         <Month month={this.state.month} handleMonth={this.handleMonth} />
         <div className="tracker">
           <TrackerList
+            month={this.state.month}
             data={this.state.data}
             handleCheck={this.handleCheck}
             handleEdit={this.handleEdit}

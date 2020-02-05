@@ -18,11 +18,11 @@ function Day() {
 
 class Calendar extends Component {
   render() {
-    const checkDates = this.props.checkDates;
+    const { month, checkDates, startDate } = this.props;
     return (
       <div className="calendar-root">
         <Day />
-        <Date checkDates={checkDates} />
+        <Date month={month} checkDates={checkDates} startDate={startDate} />
       </div>
     );
   }

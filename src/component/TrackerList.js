@@ -4,16 +4,17 @@ import "./TrackerList.css";
 
 class TrackerList extends Component {
   render() {
-    const { data, handleCheck, handleEdit, handleDelete } = this.props;
+    const { month, data, handleCheck, handleEdit, handleDelete } = this.props;
     return (
       <div className="tracker-list">
         {data.map(content => (
           <Tracker
             key={content.id}
+            month={month}
             title={content.title}
             id={content.id}
             checkDates={content.checkDates}
-            checkToday={content.checkToday}
+            startDate={content.startDate}
             handleCheck={handleCheck}
             handleEdit={handleEdit}
             handleDelete={handleDelete}
