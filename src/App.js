@@ -60,7 +60,7 @@ class App extends Component {
                 id: item.id,
                 title: item.title,
                 checkDates: item.checkDates.concat(todayDate),
-                startDate: moment().format("YYYY.M.D")
+                startDate: item.startDate
               }
             : item
         )
