@@ -1,23 +1,6 @@
 import React, { Component } from "react";
 import "./Tracker.css";
-import moment from "moment";
 import Calendar from "./Calendar";
-
-function CheckButton(props) {
-  const { id, checkDates, handleCheck } = props;
-  const today = moment().date();
-  if (!checkDates.includes(today)) {
-    return (
-      <button className="item-check-button" onClick={() => handleCheck(id)}>
-        <span role="img" aria-label="check">
-          ✔️
-        </span>
-      </button>
-    );
-  } else {
-    return null;
-  }
-}
 
 function TrackerNormal(props) {
   const { id, month, title, checkDates, startDate, handleCheck } = props;
@@ -25,14 +8,15 @@ function TrackerNormal(props) {
     <div>
       <div className="item-header">
         <h2>{title}</h2>
-        <CheckButton
-          id={id}
-          checkDates={checkDates}
-          handleCheck={handleCheck}
-        />
       </div>
       <div className="item-calendar">
-        <Calendar month={month} checkDates={checkDates} startDate={startDate} />
+        <Calendar
+          month={month}
+          checkDates={checkDates}
+          startDate={startDate}
+          id={id}
+          handleCheck={handleCheck}
+        />
       </div>
     </div>
   );

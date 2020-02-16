@@ -48,27 +48,30 @@ class App extends Component {
     }
   };
 
-  handleCheck = id => {
-    const todayDate = moment().date();
+  handleCheck = (id, date) => {
     const data = this.state.data;
-
-    this.setState(
-      {
-        data: data.map(item =>
-          item.id === id
-            ? {
-                id: item.id,
-                title: item.title,
-                checkDates: item.checkDates.concat(todayDate),
-                startDate: item.startDate
-              }
-            : item
-        )
-      },
-      () => {
-        this.handleSaveData(this.state.data);
-      }
-    );
+    const month = this.state.month;
+    const curMonth = moment().format("YYYY.M");
+    const curDate = moment().format("D");
+    if (month === curMonth && date > parseInt(curDate)) return null;
+    else
+      this.setState(
+        {
+          data: data.map(item =>
+            item.id === id
+              ? {
+                  id: item.id,
+                  title: item.title,
+                  checkDates: item.checkDates.concat(date),
+                  startDate: item.startDate
+                }
+              : item
+          )
+        },
+        () => {
+          this.handleSaveData(this.state.data);
+        }
+      );
   };
 
   handleMonth = direction => {

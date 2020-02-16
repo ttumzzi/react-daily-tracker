@@ -4,8 +4,8 @@ import "./Date.css";
 
 // coloring if the date is checked.
 function DateElem(props) {
-  const { month, n, i, checkDates, startDate } = props;
-  const curDate = `${month}.${n}`;
+  const { month, date, index, checkDates, startDate, id, handleCheck } = props;
+  const curDate = `${month}.${date}`;
   const classNames = require("classnames");
   let classArr = ["date"];
 
@@ -14,18 +14,22 @@ function DateElem(props) {
   } else if (startDate === curDate) {
     classArr.push("start-date");
   }
-  if (checkDates.includes(n)) {
+  if (checkDates.includes(date)) {
     classArr.push("checked-date");
   }
   return (
-    <div className={classNames(classArr)} key={`${n}-${i}`}>
-      <b>{n === 0 ? "" : n}</b>
+    <div
+      className={classNames(classArr)}
+      onClick={() => handleCheck(id, date)}
+      key={`${date}-${index}`}
+    >
+      <b>{date === 0 ? "" : date}</b>
     </div>
   );
 }
 
 function Date(props) {
-  const { month, checkDates, startDate } = props;
+  const { month, checkDates, startDate, id, handleCheck } = props;
   const date = [];
   const firstDayInMonth = moment()
     .startOf("month")
@@ -39,14 +43,16 @@ function Date(props) {
   for (let week = 0; week < date.length / 7; week++) {
     calendar.push(
       <div className="calendar-row" key={week}>
-        {date.slice(week * 7, week * 7 + 7).map((n, i) => (
+        {date.slice(week * 7, week * 7 + 7).map((date, index) => (
           <DateElem
-            key={`${n}_${i}`}
+            key={`${date}_${index}`}
             month={month}
-            n={n}
-            i={i}
+            date={date}
+            index={index}
             checkDates={checkDates}
             startDate={startDate}
+            id={id}
+            handleCheck={handleCheck}
           />
         ))}
       </div>
