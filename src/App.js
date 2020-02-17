@@ -62,14 +62,20 @@ class App extends Component {
               ? {
                   id: item.id,
                   title: item.title,
-                  checkDates: item.checkDates.concat(date),
+                  checkDates: item.checkDates.includes(date)
+                    ? item.checkDates.filter(d => {
+                        return d !== date;
+                      })
+                    : item.checkDates.concat(date),
+                  // checkDates: Array.from(new Set(item.checkDates.concat(date))),
                   startDate: item.startDate
                 }
               : item
           )
         },
         () => {
-          this.handleSaveData(this.state.data);
+          if (this.state.data !== data) this.handleSaveData(this.state.data);
+          else console.log("같음");
         }
       );
   };
