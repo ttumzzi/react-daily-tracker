@@ -33,6 +33,6 @@ h2 {
 }
 
 button:hover {
-  color: black;
   outline: none;
+  transform: scaleX(1.1) scaleY(1.1);
 }

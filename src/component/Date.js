@@ -9,12 +9,14 @@ function DateElem(props) {
   const classNames = require("classnames");
   let classArr = ["date"];
 
-  if (moment().format("YYYY.M.D") === curDate) {
-    classArr.push("today");
+  if (moment().format("YYYY.M.D") === curDate) classArr.push("today");
+
+  if (date > 0 && moment(curDate).isAfter(moment())) {
+    classArr.push("invalid-date");
   }
-  if (checkDates.includes(date)) {
-    classArr.push("checked-date");
-  }
+
+  if (checkDates.includes(date)) classArr.push("checked-date");
+
   return (
     <button
       className={classNames(classArr)}

@@ -17,10 +17,10 @@
   border-radius: 10px;
 }
 
-.start-date {
-  color: rgb(255, 0, 170);
-}
-
 .today {
   color: rgb(59, 243, 182);
+}
+
+.invalid-date:hover {
+  transform: none;
 }
