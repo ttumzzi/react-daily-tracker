@@ -5,7 +5,10 @@
   flex-grow: 1;
   flex-basis: 5px;
   margin: 0.2rem;
-  padding: 0.1rem;
+  padding: 8px;
+  border: none;
+  outline: none;
+  background-color: transparent;
 }
 
 .checked-date {

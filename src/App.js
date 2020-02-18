@@ -36,8 +36,7 @@ class App extends Component {
           data: data.concat({
             id: shortid.generate(),
             title: newItem,
-            checkDates: [],
-            startDate: moment().format("YYYY.M.D")
+            checkDates: []
           })
         },
         // using updated state right after setState
@@ -49,6 +48,7 @@ class App extends Component {
   };
 
   handleCheck = (id, date) => {
+    if (date === 0) return null;
     const data = this.state.data;
     const month = this.state.month;
     const curMonth = moment().format("YYYY.M");
@@ -66,9 +66,8 @@ class App extends Component {
                     ? item.checkDates.filter(d => {
                         return d !== date;
                       })
-                    : item.checkDates.concat(date),
+                    : item.checkDates.concat(date)
                   // checkDates: Array.from(new Set(item.checkDates.concat(date))),
-                  startDate: item.startDate
                 }
               : item
           )
@@ -145,11 +144,9 @@ class App extends Component {
         <Direction />
         <div className="header">
           <h1 className="app-title">Daily tracker</h1>
-          {this.state.month === moment().format("YYYY.M") && (
-            <button className="add-item-button" onClick={this.handleAddItem}>
-              ✔ Add item
-            </button>
-          )}
+          <button className="add-item-button" onClick={this.handleAddItem}>
+            ✔ Add item
+          </button>
         </div>
         <Month month={this.state.month} handleMonth={this.handleMonth} />
         <div className="tracker">

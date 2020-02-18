@@ -14,7 +14,6 @@ class TrackerList extends Component {
             title={content.title}
             id={content.id}
             checkDates={content.checkDates}
-            startDate={content.startDate}
             handleCheck={handleCheck}
             handleEdit={handleEdit}
             handleDelete={handleDelete}

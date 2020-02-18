@@ -29,4 +29,10 @@ h2 {
   font-size: 1.2rem;
   color: aliceblue;
   padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+  margin: 8px 0 0 0;
+}
+
+button:hover {
+  color: black;
+  outline: none;
 }

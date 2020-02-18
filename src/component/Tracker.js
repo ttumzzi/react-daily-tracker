@@ -3,17 +3,23 @@ import "./Tracker.css";
 import Calendar from "./Calendar";
 
 function TrackerNormal(props) {
-  const { id, month, title, checkDates, startDate, handleCheck } = props;
+  const { id, month, title, checkDates, handleCheck } = props;
   return (
     <div>
       <div className="item-header">
         <h2>{title}</h2>
+        <button className="setting-button">
+          <img
+            className="setting-button-img"
+            src={"./img/setting.png"}
+            alt="setting"
+          />
+        </button>
       </div>
       <div className="item-calendar">
         <Calendar
           month={month}
           checkDates={checkDates}
-          startDate={startDate}
           id={id}
           handleCheck={handleCheck}
         />
@@ -71,7 +77,6 @@ class Tracker extends Component {
       month,
       title,
       checkDates,
-      startDate,
       handleCheck,
       handleEdit,
       handleDelete
@@ -85,7 +90,6 @@ class Tracker extends Component {
             month={month}
             title={title}
             checkDates={checkDates}
-            startDate={startDate}
             handleCheck={handleCheck}
           />
         ) : (

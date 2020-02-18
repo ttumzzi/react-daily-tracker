@@ -4,40 +4,39 @@ import "./Date.css";
 
 // coloring if the date is checked.
 function DateElem(props) {
-  const { month, date, index, checkDates, startDate, id, handleCheck } = props;
+  const { month, date, index, checkDates, id, handleCheck } = props;
   const curDate = `${month}.${date}`;
   const classNames = require("classnames");
   let classArr = ["date"];
 
   if (moment().format("YYYY.M.D") === curDate) {
     classArr.push("today");
-  } else if (startDate === curDate) {
-    classArr.push("start-date");
   }
   if (checkDates.includes(date)) {
     classArr.push("checked-date");
   }
   return (
-    <div
+    <button
       className={classNames(classArr)}
       onClick={() => handleCheck(id, date)}
       key={`${date}-${index}`}
     >
       <b>{date === 0 ? "" : date}</b>
-    </div>
+    </button>
   );
 }
 
 function Date(props) {
-  const { month, checkDates, startDate, id, handleCheck } = props;
+  const { month, checkDates, id, handleCheck } = props;
   const date = [];
-  const firstDayInMonth = moment()
-    .startOf("month")
-    .get("day");
-  const daysInMonth = moment().daysInMonth();
+  const m = moment(month, "YYYY.M");
+  const firstDayInMonth = m.startOf("month").get("day");
+  const daysInMonth = m.daysInMonth();
+  const lastDayInMOnth = m.endOf("month").get("day");
 
   for (let i = 0; i < firstDayInMonth; i++) date.push(0);
   for (let i = 0; i < daysInMonth; i++) date.push(i + 1);
+  for (let i = 0; i < 6 - lastDayInMOnth; i++) date.push(0);
 
   let calendar = [];
   for (let week = 0; week < date.length / 7; week++) {
@@ -50,7 +49,6 @@ function Date(props) {
             date={date}
             index={index}
             checkDates={checkDates}
-            startDate={startDate}
             id={id}
             handleCheck={handleCheck}
           />
