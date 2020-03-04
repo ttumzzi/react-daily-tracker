@@ -74,7 +74,6 @@ class App extends Component {
         },
         () => {
           if (this.state.data !== data) this.handleSaveData(this.state.data);
-          else console.log("같음");
         }
       );
   };

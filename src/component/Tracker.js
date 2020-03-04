@@ -3,12 +3,19 @@ import "./Tracker.css";
 import Calendar from "./Calendar";
 
 function TrackerNormal(props) {
-  const { id, month, title, checkDates, handleCheck } = props;
+  const {
+    id,
+    month,
+    title,
+    checkDates,
+    handleCheck,
+    handleSettingOpen
+  } = props;
   return (
     <div>
       <div className="item-header">
         <h2>{title}</h2>
-        <button className="setting-button">
+        <button className="setting-button" onClick={handleSettingOpen}>
           <img
             className="setting-button-img"
             src={"./img/setting.png"}
@@ -32,14 +39,12 @@ function Setting(props) {
   const { id, handleEdit, handleDelete, handleSettingOpen } = props;
   const handleItemEdit = () => {
     handleEdit(id);
-    handleSettingOpen();
   };
   const handleItemDelete = () => {
     handleDelete(id);
-    handleSettingOpen();
   };
   return (
-    <div className="setting">
+    <div className="setting" onClick={handleSettingOpen}>
       <button onClick={handleItemEdit}>
         edit title{" "}
         <span role="img" aria-label="edit">
@@ -83,7 +88,7 @@ class Tracker extends Component {
     } = this.props;
     const settingOpen = this.state.settingOpen;
     return (
-      <div className="tracker-box" onDoubleClick={this.handleSettingOpen}>
+      <div className="tracker-box">
         {!settingOpen ? (
           <TrackerNormal
             id={id}
@@ -91,6 +96,7 @@ class Tracker extends Component {
             title={title}
             checkDates={checkDates}
             handleCheck={handleCheck}
+            handleSettingOpen={this.handleSettingOpen}
           />
         ) : (
           <Setting
