@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/daily-tracker/static/css/main.1e5841dc.chunk.css",
-    "main.js": "/daily-tracker/static/js/main.3460af9e.chunk.js",
-    "main.js.map": "/daily-tracker/static/js/main.3460af9e.chunk.js.map",
+    "main.js": "/daily-tracker/static/js/main.44ebe36e.chunk.js",
+    "main.js.map": "/daily-tracker/static/js/main.44ebe36e.chunk.js.map",
     "runtime-main.js": "/daily-tracker/static/js/runtime-main.267b8083.js",
     "runtime-main.js.map": "/daily-tracker/static/js/runtime-main.267b8083.js.map",
     "static/js/2.2b3fe243.chunk.js": "/daily-tracker/static/js/2.2b3fe243.chunk.js",
     "static/js/2.2b3fe243.chunk.js.map": "/daily-tracker/static/js/2.2b3fe243.chunk.js.map",
     "index.html": "/daily-tracker/index.html",
-    "precache-manifest.7ed9b9d668141113ac75b4a7d6daffc6.js": "/daily-tracker/precache-manifest.7ed9b9d668141113ac75b4a7d6daffc6.js",
+    "precache-manifest.60adbab08eae98de3348e98b0627f78c.js": "/daily-tracker/precache-manifest.60adbab08eae98de3348e98b0627f78c.js",
     "service-worker.js": "/daily-tracker/service-worker.js",
     "static/css/main.1e5841dc.chunk.css.map": "/daily-tracker/static/css/main.1e5841dc.chunk.css.map",
     "static/js/2.2b3fe243.chunk.js.LICENSE": "/daily-tracker/static/js/2.2b3fe243.chunk.js.LICENSE"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.267b8083.js",
     "static/js/2.2b3fe243.chunk.js",
     "static/css/main.1e5841dc.chunk.css",
-    "static/js/main.3460af9e.chunk.js"
+    "static/js/main.44ebe36e.chunk.js"
   ]
 }
