@@ -1,17 +1,22 @@
-<h1>Daily Tracker App</h1>
+# <center>Daily Tracker App</center>
 
-This is daily tracker app.</br>
+## 🧐 Description
+This is daily **habit tracker**.
 You can add some habits to do and check off every day.
 
-<h2>🔨 Functions</h2>
+## 👩‍💻 사용 기술
+- React
+
+## 🔨 Functions
 - Add habits </br>
 - Check off habits each day </br>
 - Edit habit name (double click) </br>
 - Deleting habits (double click) </br>
 
-<h2>🔎 Preview </h2>
-<div><b>main</b></div>
-<img width="100%" src="https://github.com/ttumzzi/daily-tracker/blob/master/imgs/main.JPG"/>
-<div><b>setting</b></div>
-<div>(can toggle to setting mode through double click)</div>
-<img width="100%" src="https://github.com/ttumzzi/daily-tracker/blob/master/imgs/edit_delete.JPG"/>
+## 🔎 Preview
+### main
+![main page](https://github.com/ttumzzi/daily-tracker/blob/master/imgs/main.JPG)
+
+### setting
+(can toggle to setting mode through double click)
+![setting](https://github.com/ttumzzi/daily-tracker/blob/master/imgs/edit_delete.JPG)
